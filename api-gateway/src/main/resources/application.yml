@@ -17,44 +17,44 @@ spring:
             methods: GET
             statuses: BAD_GATEWAY, GATEWAY_TIMEOUT, SERVICE_UNAVAILABLE, INTERNAL_SERVER_ERROR
       routes:
-        # Players: acepta /api/players/** (passthrough)
-        - id: players-service-api
+        # Clientes: acepta /api/clientes/** (passthrough)
+        - id: clientes-service-api
           uri: ${PLAYERS_URI:http://localhost:8081}
           predicates:
-            - Path=/api/players/**
-        # Players: acepta /players/** y reescribe a /api/players/**
-        - id: players-service-noapi
+            - Path=/api/clientes/**
+        # Clientes: acepta /clientes/** y reescribe a /api/clientes/**
+        - id: clientes-service-noapi
           uri: ${PLAYERS_URI:http://localhost:8081}
           predicates:
-            - Path=/players/**
+            - Path=/clientes/**
           filters:
-            - RewritePath=/players/(?<segment>.*), /api/players/${segment}
-        # Players: acepta /players exacto y lo envía a /api/players
-        - id: players-service-root
+            - RewritePath=/clientes/(?<segment>.*), /api/clientes/${segment}
+        # Clientes: acepta /clientes exacto y lo envía a /api/clientes
+        - id: clientes-service-root
           uri: ${PLAYERS_URI:http://localhost:8081}
           predicates:
-            - Path=/players
+            - Path=/clientes
           filters:
-            - SetPath=/api/players
-        # Teams: acepta /api/teams/** (passthrough)
-        - id: teams-service-api
+            - SetPath=/api/clientes
+        # Vehiculos: acepta /api/vehiculos/** (passthrough)
+        - id: vehiculos-service-api
           uri: ${TEAMS_URI:http://localhost:8082}
           predicates:
-            - Path=/api/teams/**
-        # Teams: acepta /teams/** y reescribe a /api/teams/**
-        - id: teams-service-noapi
+            - Path=/api/vehiculos/**
+        # Vehiculos: acepta /vehiculos/** y reescribe a /api/vehiculos/**
+        - id: vehiculos-service-noapi
           uri: ${TEAMS_URI:http://localhost:8082}
           predicates:
-            - Path=/teams/**
+            - Path=/vehiculos/**
           filters:
-            - RewritePath=/teams/(?<segment>.*), /api/teams/${segment}
-        # Teams: acepta /teams exacto y lo envía a /api/teams
-        - id: teams-service-root
+            - RewritePath=/vehiculos/(?<segment>.*), /api/vehiculos/${segment}
+        # Vehiculos: acepta /vehiculos exacto y lo envía a /api/vehiculos
+        - id: vehiculos-service-root
           uri: ${TEAMS_URI:http://localhost:8082}
           predicates:
-            - Path=/teams
+            - Path=/vehiculos
           filters:
-            - SetPath=/api/teams
+            - SetPath=/api/vehiculos
 management:
   endpoints:
     web:
