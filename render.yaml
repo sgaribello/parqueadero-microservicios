@@ -1,0 +1,52 @@
+services:
+  # Clientes Service
+  - type: web
+    name: clientes-service
+    env: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./clientes-service/Dockerfile
+    dockerContext: .
+    autoDeploy: true
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: R2DBC_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+
+  # Vehiculos Service
+  - type: web
+    name: vehiculos-service
+    env: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./vehiculos-service/Dockerfile
+    dockerContext: .
+    autoDeploy: true
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: R2DBC_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+
+  # API Gateway
+  - type: web
+    name: api-gateway
+    env: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./api-gateway/Dockerfile
+    dockerContext: .
+    autoDeploy: true
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: PLAYERS_URI
+        sync: false
+      - key: TEAMS_URI
+        sync: false
