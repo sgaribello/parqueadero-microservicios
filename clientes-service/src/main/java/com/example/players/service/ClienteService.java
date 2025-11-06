@@ -14,7 +14,6 @@ public class ClienteService {
 
     public Flux<Cliente> all() { return repo.findAll(); }
     public Mono<Cliente> byId(Integer id) { return repo.findById(id); }
-    public Flux<Cliente> byTeam(Integer teamId) { return repo.findByTeamId(teamId); }
     public Mono<Cliente> create(Cliente p) { return repo.save(p); }
     public Mono<Cliente> update(Integer id, Cliente p) {
         return repo.findById(id).flatMap(old -> repo.save(new Cliente(id, p.fullName(), p.documento(), p.telefono())));
