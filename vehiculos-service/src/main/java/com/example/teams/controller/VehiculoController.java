@@ -9,7 +9,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api/teams")
+@RequestMapping("/api/vehiculos")
 public class VehiculoController {
     private final VehiculoService service;
 
