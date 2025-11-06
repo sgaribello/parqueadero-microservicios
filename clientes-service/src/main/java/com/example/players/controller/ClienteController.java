@@ -21,8 +21,6 @@ public class ClienteController {
     @GetMapping("/{id}")
     public Mono<Cliente> byId(@PathVariable Integer id) { return service.byId(id); }
 
-    @GetMapping("/team/{teamId}")
-    public Flux<Cliente> byTeam(@PathVariable Integer teamId) { return service.byTeam(teamId); }
 
     @PostMapping
     public Mono<Cliente> create(@RequestBody @Valid ClienteRequests.Create req) {
