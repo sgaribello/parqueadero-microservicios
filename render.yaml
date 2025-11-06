@@ -11,11 +11,11 @@ services:
     healthCheckPath: /actuator/health
     envVars:
       - key: R2DBC_URL
-        sync: false
+        value: r2dbc:postgresql://parqueadero_user:PUNSCnTOGDwZ1RqFDGi6dmQ7THVNZ5a8@dpg-d4616fc9c44c73cd73o0-a.oregon-postgres.render.com:5432/parqueadero_sxn3?sslMode=require
       - key: DB_USER
-        sync: false
+        value: parqueadero_user
       - key: DB_PASSWORD
-        sync: false
+        value: PUNSCnTOGDwZ1RqFDGi6dmQ7THVNZ5a8
 
   # Vehiculos Service
   - type: web
@@ -29,11 +29,11 @@ services:
     healthCheckPath: /actuator/health
     envVars:
       - key: R2DBC_URL
-        sync: false
+        value: r2dbc:postgresql://parqueadero_user:PUNSCnTOGDwZ1RqFDGi6dmQ7THVNZ5a8@dpg-d4616fc9c44c73cd73o0-a.oregon-postgres.render.com:5432/parqueadero_sxn3?sslMode=require
       - key: DB_USER
-        sync: false
+        value: parqueadero_user
       - key: DB_PASSWORD
-        sync: false
+        value: PUNSCnTOGDwZ1RqFDGi6dmQ7THVNZ5a8
 
   # API Gateway
   - type: web
